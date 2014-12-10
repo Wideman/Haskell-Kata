@@ -54,11 +54,24 @@ is_palindrome :: (Eq a) =>  [a] -> Bool
 is_palindrome li =   li == reverse' li    
 
 
+{- Problem 7
+ - Flatten a nested list structure.
+ - --copied from haskell.org
+ - -- need check info for type def
+ - -}
+data NestedList a = Elem a | List [NestedList a]
+flatten :: NestedList a -> [a]
+flatten (Elem a)    =   [a]
+flatten (List(x:xs))=   flatten x ++ flatten (List xs)
+flatten (List[])    =   []
 
-
-
-
-
+{- Problem 8
+ - Eliminate consecutive duplicates of list elements.
+ - -}
+compress (x:ys@(y:_))
+    | x == y    = compress ys
+    | otherwise = x : compress ys
+compress x = x
 
 
 
