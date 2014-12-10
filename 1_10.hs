@@ -38,9 +38,20 @@ len' []         =   0
 len' (x:xs)     =   1 + len' xs
 
 
+{- Problem 5
+ - Reverse a list.
+ - -}
+reverse' :: [a] -> [a]
+reverse' []     =   []
+--reverse' [x]    =   [x]   -- unnecessary
+reverse' (x:xs) =   reverse' xs ++ [x]
 
 
-
+{- Problem 6
+ - Find out whether a list is a palindrome. 
+ - -}
+is_palindrome :: (Eq a) =>  [a] -> Bool
+is_palindrome li =   li == reverse' li    
 
 
 
