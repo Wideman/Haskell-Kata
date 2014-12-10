@@ -65,18 +65,24 @@ flatten (Elem a)    =   [a]
 flatten (List(x:xs))=   flatten x ++ flatten (List xs)
 flatten (List[])    =   []
 
+
 {- Problem 8
  - Eliminate consecutive duplicates of list elements.
  - -}
+compress :: Eq a => [a] -> [a] 
 compress (x:ys@(y:_))
     | x == y    = compress ys
     | otherwise = x : compress ys
 compress x = x
 
 
-
-
-
-
-
-
+{- Problem 9
+ - Pack consecutive duplicates of list elements into sublists. 
+ - If a list contains repeated elements they should be placed in separate sublists.
+ - -}
+pack :: (Eq a) => [a] -> [[a]]
+pack []     = []
+pack [x]    = [[x]]
+pack (x:xs) =   if x `elem` (head(pack xs))
+                then (x:(head (pack xs))) : (tail(pack xs))
+                else [x]:(pack xs)
