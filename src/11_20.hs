@@ -29,3 +29,12 @@ splitAt' xs n = (take n xs, drop n xs)
 --18 (**) Extract a slice from a list.
 slice' :: [a] -> Int -> Int -> [a]
 slice' xs n k = drop (n-1) $ take k xs 
+
+
+--19 (**) Rotate a list N places to the left.
+rotate :: Int -> [a] -> [a]
+rotate _ [] = []
+rotate 0 xs = xs
+rotate n ys@(x:xs) 
+    | n > 0     = rotate (n-1) $ xs ++ [x] 
+    | otherwise = rotate (abs n - 1) $ last ys : init ys
