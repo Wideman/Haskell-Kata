@@ -15,3 +15,10 @@ range beg end
     | beg == end  = []
     | otherwise   = beg : range (beg + 1) end 
 
+
+--Problem 28
+--Sorting a list of lists according to length of sublists
+import List
+import Data.Ord (comparing)
+lsort :: [[a]] -> [[a]]
+lsort = sortBy (\xs ys -> compare (length xs) (length ys))
