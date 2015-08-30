@@ -1,4 +1,2 @@
-99
+Haskell Kata
 ==
-
-99 solutions for Haskell
