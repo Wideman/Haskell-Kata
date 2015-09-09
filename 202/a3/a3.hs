@@ -1,3 +1,4 @@
+import Data.Char
 --
 --Exercise 1
 --
@@ -21,10 +22,22 @@
 --
 sum2a :: Int -> Int
 sum2a n = (div (n * (n + 1)) 2) ^ 2
+
 sum2b :: Int -> Int
 sum2b n
   | n == 1    = 1
   | otherwise = (n ^ 3) + sum2b(n - 1)
+
 sum2c :: Int -> Int
 sum2c 1 = 1
 sum2c n = (n ^ 3) + sum2b(n - 1)
+
+--
+--Exercise 3
+--
+f :: Char -> Int
+f c
+  | c >= '0' && c <= '9'  = ord c
+  | c >= 'a' && c <= 'f'  =
+  | c >= 'A' && c <= 'F'  =
+  | otherwise     
