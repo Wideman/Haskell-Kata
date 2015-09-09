@@ -16,3 +16,4 @@
 --
 --Exercise 2
 --
+sum2a :: Int -> Int
