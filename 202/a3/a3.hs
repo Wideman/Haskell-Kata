@@ -1,4 +1,5 @@
 import Data.Char
+
 --
 --Exercise 1
 --
@@ -49,3 +50,18 @@ netEarning x
   | x > 14000.000   &&  x <= 48000.000  = x * (1 - 0.175)
   | x > 48000.000   &&  x <= 70000.000  = x * (1 - 0.300)
   | x > 70000.000                       = x * (1 - 0.330)
+
+--
+--Exercise 4
+--
+gcd' :: Int -> Int -> Int
+gcd' x y
+  | x == y    = x
+  | x > y     = gcd' (x - y) y
+  | otherwise = gcd' x (y -x)
+
+pow :: Integer -> Integer -> Integer
+pow n k
+  | 0 == k        = 1
+  | 0 == mod k 2  = pow (n * n) (div k 2)
+  | 1 == mod k 2  = n * (pow n (k - 1))
