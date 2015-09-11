@@ -41,3 +41,11 @@ f c
   | c >= 'a' && c <= 'f'  = ord c - ord 'a' + 10
   | c >= 'A' && c <= 'F'  = ord c - ord 'A' + 10
   | otherwise             = error "not hexadecimal digit"
+
+netEarning :: Float -> Float
+netEarning x 
+  | x < 0   = error "Input must be greater or equal to 0.00"
+  | x >= 0          &&  x <= 14000.000  = x * (1 - 0.105)
+  | x > 14000.000   &&  x <= 48000.000  = x * (1 - 0.175)
+  | x > 48000.000   &&  x <= 70000.000  = x * (1 - 0.300)
+  | x > 70000.000                       = x * (1 - 0.330)
