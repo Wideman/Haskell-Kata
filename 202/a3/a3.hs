@@ -37,7 +37,7 @@ sum2c n = (n ^ 3) + sum2b(n - 1)
 --
 f :: Char -> Int
 f c
-  | c >= '0' && c <= '9'  = ord c
-  | c >= 'a' && c <= 'f'  =
-  | c >= 'A' && c <= 'F'  =
-  | otherwise     
+  | c >= '0' && c <= '9'  = ord c - ord '0'
+  | c >= 'a' && c <= 'f'  = ord c - ord 'a' + 10
+  | c >= 'A' && c <= 'F'  = ord c - ord 'A' + 10
+  | otherwise             = error "not hexadecimal digit"
