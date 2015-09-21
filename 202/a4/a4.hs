@@ -24,8 +24,12 @@ makeFrac frac = (first, second)
 powFr :: Fraction -> Int -> String
 powFr b p = showFrac (makeFrac calculated)
   where calculated = ((fst b) ^ p , ((snd b) ^ p))
+
 --b
---not implemented yet.
+(<->) :: Fraction -> Fraction -> Bool
+l <-> r = l == (snd r, fst r)
+infix 3 <->
+
 --
 -- Exercise 3
 --
