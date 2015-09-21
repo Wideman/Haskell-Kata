@@ -51,4 +51,6 @@ magic xs = (snd pair, lft ++ rht)
     rht = drop ((fst pair) + 1) xs
     pair = smallest xs
 
-
+total :: [[Int]] -> Int
+total []      = 0
+total (x:xs)  = (sum x) + (total xs)
