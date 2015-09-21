@@ -38,14 +38,18 @@ prod :: [Integer] -> [Integer] -> Integer
 prod [_] []        = error "Error: different sizes."
 prod [] [_]        = error "Error: different sizes."
 prod []  []        = 1
-prod (l:ls) (r:rs) = (check l r) * (prod ls rs)
-  where check i j = if mod i j == 0 then i else 1
+prod (l:ls) (r:rs) 
+  | mod l r == 0   = l * next
+  | otherwise	   = 1 * next
+  where next = prod ls rs
 
 --b
 smallest :: [Int] -> (Int, Int)
-smallest []     = error "empty list"
-smallest [x]    = (0, x)
-smallest (x:xs) = if x < (snd next) then (0, x) else ((fst next) + 1, snd next )
+smallest []        = error "empty list"
+smallest [x]       = (0, x)
+smallest (x:xs)
+  | x < (snd next) = (0, x) 
+  | otherwise      = ( (fst next) + 1, snd next )
   where next = smallest xs
 
 magic :: [Int] -> (Int, [Int])
