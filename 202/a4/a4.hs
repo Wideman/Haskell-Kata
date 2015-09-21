@@ -68,3 +68,6 @@ sOdd2 :: [Int] -> [Int]
 sOdd2 xs
   | length xs > 1  =  (if odd (head xs) then [xs !! 1] else []) ++ sOdd2 (tail xs)
   | otherwise      =  []
+
+sOdd3 :: [Int] -> [Int]
+sOdd3 xs = [ xs !! (i + 1) | i <- [0..((length xs) - 2)], odd (xs !! i) ]
