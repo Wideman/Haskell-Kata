@@ -22,6 +22,7 @@ makeFrac frac = (first, second)
     common  =   gcd (fst frac) (snd frac)
 
 powFr :: Fraction -> Int -> String
-powFr b p = showFrac $ makeFrac $ ((fst b) ^ p , ((snd b) ^ p))
+powFr b p = showFrac $ makeFrac calculated
+  where calculated = ((fst b) ^ p , ((snd b) ^ p))
         
 
