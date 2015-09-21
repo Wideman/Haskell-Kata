@@ -32,7 +32,8 @@ prod :: [Integer] -> [Integer] -> Integer
 prod [_] []        = error "Error: different sizes."
 prod [] [_]        = error "Error: different sizes."
 prod []  []        = 1
-prod (l:ls) (r:rs) = (if mod l r == 0 then l else 1) * (prod ls rs)
+prod (l:ls) (r:rs) = (check l r) * (prod ls rs)
+  where check i j = if mod i j == 0 then i else 1
 
 
 
