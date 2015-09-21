@@ -24,6 +24,8 @@ makeFrac frac = (first, second)
 powFr :: Fraction -> Int -> String
 powFr b p = showFrac (makeFrac calculated)
   where calculated = ((fst b) ^ p , ((snd b) ^ p))
+--b
+--not implemented yet.
 --
 -- Exercise 3
 --
@@ -35,6 +37,7 @@ prod []  []        = 1
 prod (l:ls) (r:rs) = (check l r) * (prod ls rs)
   where check i j = if mod i j == 0 then i else 1
 
+--b
 
 
 
