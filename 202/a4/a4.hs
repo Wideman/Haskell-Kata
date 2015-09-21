@@ -63,3 +63,8 @@ sOdd1 :: [Int] -> [Int]
 sOdd1 []      = []
 sOdd1 [_]     = []
 sOdd1 (x:xs)  = (if odd x then [head xs] else [] ) ++ sOdd1 xs
+
+sOdd2 :: [Int] -> [Int]
+sOdd2 xs
+  | length xs > 1  =  (if odd (head xs) then [xs !! 1] else []) ++ sOdd2 (tail xs)
+  | otherwise      =  []
