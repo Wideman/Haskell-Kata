@@ -51,6 +51,15 @@ magic xs = (snd pair, lft ++ rht)
     rht = drop ((fst pair) + 1) xs
     pair = smallest xs
 
+--c
 total :: [[Int]] -> Int
 total []      = 0
 total (x:xs)  = (sum x) + (total xs)
+
+--
+--Exercise 4
+--
+sOdd1 :: [Int] -> [Int]
+sOdd1 []      = []
+sOdd1 [_]     = []
+sOdd1 (x:xs)  = (if odd x then [head xs] else [] ) ++ sOdd1 xs
