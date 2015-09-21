@@ -12,11 +12,11 @@ time i = ((div i 3600), (div (mod i 3600) 60), (mod i 60))
 type Fraction = (Int, Int)
 
 showFrac :: Fraction -> String
-showFrac frac = "(" ++ show (fst frac) ++ "/" ++ show (snd frac) ++ ")"
+showFrac frac = show (fst frac) ++ "/" ++ show (snd frac) ++ "\n"
 
 makeFrac :: Fraction -> Fraction
 makeFrac frac = (first, second)
-  where 
+  where
     first   =   div (fst frac) common
     second  =   div (snd frac) common
     common  =   gcd (fst frac) (snd frac)
@@ -46,7 +46,7 @@ smallest (x:xs) = if x < (snd next) then (0, x) else ((fst next) + 1, snd next )
 
 magic :: [Int] -> (Int, [Int])
 magic xs = (snd pair, lft ++ rht)
-  where 
+  where
     lft = take (fst pair) xs
     rht = drop ((fst pair) + 1) xs
     pair = smallest xs
