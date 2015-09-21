@@ -27,4 +27,14 @@ powFr b p = showFrac (makeFrac calculated)
 --
 -- Exercise 3
 --
+--a
+prod :: [Integer] -> [Integer] -> Integer
+prod [_] []        = error "Error: different sizes."
+prod [] [_]        = error "Error: different sizes."
+prod []  []        = 1
+prod (l:ls) (r:rs) = (if mod l r == 0 then l else 1) * (prod ls rs)
+
+
+
+
 
