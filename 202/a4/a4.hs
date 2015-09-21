@@ -38,7 +38,17 @@ prod (l:ls) (r:rs) = (check l r) * (prod ls rs)
   where check i j = if mod i j == 0 then i else 1
 
 --b
+smallest :: [Int] -> (Int, Int)
+smallest []     = error "empty list"
+smallest [x]    = (0, x)
+smallest (x:xs) = if x < (snd next) then (0, x) else ((fst next) + 1, snd next )
+  where next = smallest xs
 
-
+magic :: [Int] -> (Int, [Int])
+magic xs = (snd pair, lft ++ rht)
+  where 
+    lft = take (fst pair) xs
+    rht = drop ((fst pair) + 1) xs
+    pair = smallest xs
 
 
