@@ -1,8 +1,3 @@
---
---ID: 12086075, Name: Liu Kuan
---ID: 15242698, Name: Zhenlin Cheng
---
-
 import Data.Char
 
 --
