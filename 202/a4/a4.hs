@@ -2,7 +2,7 @@
 -- Exercise 1
 -- a
 time  :: Integer -> (Integer, Integer, Integer)
-time i = ((div i 3600), (div (mod i 3600) 60), (mod i 60))
+time i = (div i 3600, div (mod i 3600) 60, mod i 60)
 
 --b
 
@@ -62,7 +62,7 @@ magic xs = (snd pair, lft ++ rht)
 --c
 total :: [[Int]] -> Int
 total []      = 0
-total (x:xs)  = (sum x) + (total xs)
+total (x:xs)  = sum x + total xs
 
 --
 --Exercise 4
@@ -70,12 +70,14 @@ total (x:xs)  = (sum x) + (total xs)
 sOdd1 :: [Int] -> [Int]
 sOdd1 []      = []
 sOdd1 [_]     = []
-sOdd1 (x:xs)  = (if odd x then [head xs] else [] ) ++ sOdd1 xs
+sOdd1 (x:xs)  = curr ++ sOdd1 xs
+  where curr = if odd x then [head xs] else []
 
 sOdd2 :: [Int] -> [Int]
 sOdd2 xs
-  | length xs > 1  =  (if odd (head xs) then [xs !! 1] else []) ++ sOdd2 (tail xs)
+  | length xs > 1  = curr ++ sOdd2 (tail xs)
   | otherwise      =  []
+  where curr = if odd (head xs) then [xs !! 1] else []
 
 sOdd3 :: [Int] -> [Int]
 sOdd3 xs = [ xs !! (i + 1) | i <- [0..((length xs) - 2)], odd (xs !! i) ]
