@@ -26,9 +26,9 @@ powFr b p = showFrac (makeFrac calculated)
   where calculated = ((fst b) ^ p , ((snd b) ^ p))
 
 --b
-(<->) :: Fraction -> Fraction -> Bool
-l <-> r = l == (snd r, fst r)
-infix 3 <->
+(%%) :: Fraction -> Fraction -> Bool
+l %% r = l == (snd r, fst r)
+infix 3 %%
 
 --
 -- Exercise 3
