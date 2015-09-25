@@ -5,7 +5,18 @@ time  :: Integer -> (Integer, Integer, Integer)
 time i = (div i 3600, div (mod i 3600) 60, mod i 60)
 
 --b
-
+type Point = (Int, Int)
+type Line = (Int, Int, Int)
+onLine :: Point -> Line -> Bool
+onLine p l =  0 == a * x + b * y + c
+  where a = item0 l
+        b = item1 l
+        c = item2 l
+        x = fst p
+        y = snd p
+        item0 (a, _, _) = a
+        item1 (_, a, _) = a
+        item2 (_, _, a) = a
 --
 -- Exercise 2
 --a
